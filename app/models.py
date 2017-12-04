@@ -2,11 +2,11 @@ from app import db
 from sqlalchemy.exc import SQLAlchemyError
 
 
-class Task(db.Model):
+class Todo(db.Model):
     """
     This class represents the task table
     """
-    __tablename__ = 'tasks'
+    __tablename__ = 'todos'
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255))
@@ -35,7 +35,7 @@ class Task(db.Model):
     @staticmethod
     def get_all():
         """Get all the Tasks in the model"""
-        return Task.query.all()
+        return Todo.query.all()
 
     def delete(self):
         """
